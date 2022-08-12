@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Julian Palavecino <samuguayfenix@gmail.com>",
+  "type": "module",
   "license": "MIT",
+  "scripts": {
+    "dev": "node config/esbuild.js"
+  },
   "devDependencies": {
     "esbuild": "^0.15.1"
   }
