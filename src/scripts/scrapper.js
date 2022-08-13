@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { $,$$ } from '../utils/selectors.js'
+import { db } from '../../config/connectionDB.js'
 
 
 async function startScraping() {
@@ -53,9 +54,16 @@ async function startScraping() {
             educationTitles
         }
         console.log(profile)
+
+        db.profile.add({
+            contactInfo: profile.contactInfo,
+            educationTitles: profile.experienceTitles,
+            experienceTitles: profile.educationTitles
+        })
+        console.log(db.profile.get(1))
     }
 
-    getProfiles()
+    getProfileInfo()
 }
 
 startScraping()
