@@ -60,7 +60,7 @@ async function startScraping() {
             educationTitles: profile.experienceTitles,
             experienceTitles: profile.educationTitles
         })
-        console.log(db.profile.get(1))
+        console.log(db.profile.toArray())
     }
 
     getProfileInfo()
