@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { db } from '../../config/connectionDB.js'
 import { waitForSelector } from '../utils/waitFor'
 import { $, $$ } from '../utils/selectors'
 
@@ -39,14 +38,18 @@ async function getProfileInfo() {
         experienceTitles,
         educationTitles
     }
-    console.log(profile)
 
-    db.profile.add({
-        contactInfo: profile.contactInfo,
-        educationTitles: profile.experienceTitles,
-        experienceTitles: profile.educationTitles
-    })
-    console.log(db.profile.toArray())
+    let url = 'http://localhost:3000/profiles'
+    let postData = profile
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+        .catch(error => console.log('Error:', error))
+        .then(response => console.log('Success:', response))
 }
 
 getProfileInfo()
