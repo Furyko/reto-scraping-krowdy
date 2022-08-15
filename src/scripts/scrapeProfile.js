@@ -1,8 +1,12 @@
 import axios from 'axios'
 import { db } from '../../config/connectionDB.js'
+import { waitForSelector } from '../utils/waitFor'
+import { $, $$ } from '../utils/selectors'
 
 
 async function getProfileInfo() {
+    await waitForSelector('#experience')
+
     const token = document.cookie
         .split(';')
         .find(cookie => cookie.includes('JSESSIONID'))

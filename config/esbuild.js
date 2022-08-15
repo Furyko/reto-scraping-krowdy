@@ -1,7 +1,7 @@
 import esbuild from 'esbuild'
 
 esbuild.build({
-    entryPoints: ['src/sw.js', 'src/scripts/scrapper.js'],
+    entryPoints: ['src/sw.js', 'src/scripts/scrapper.js', 'src/scripts/scrapeProfile.js'],
     watch: true,
     bundle: true,
     outdir: 'dist',
