@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "dexie": "^3.2.2"
+    "dexie": "^3.2.2",
+    "json-server": "^0.17.0"
   }
 }

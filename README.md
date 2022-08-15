@@ -12,6 +12,11 @@ Correr el proyecto con...
   yarn dev
 ```
 
+Correo también el mock api con...
+```
+  yarn json-server --watch mock/db.json
+```
+
 Crear un archivo llamado...
 ```bash
   manifest.json
