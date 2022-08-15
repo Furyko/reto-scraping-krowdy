@@ -9,13 +9,18 @@ async function getProfileInfo() {
     const token = document.cookie
         .split(';')
         .find(cookie => cookie.includes('JSESSIONID'))
-        .replace(/JSESSIONID=|"/g, '').trim()
+        .replace('JSESSIONID=','')
+        .replaceAll('"', '')
+        .trim()
 
     const profileUrlName = window.location.href.match(/in\/.+\//g)[0].slice(3, -1)
-    const { data } = await axios.get(
+    const { data: {data} } = await axios.get(
         `https://www.linkedin.com/voyager/api/identity/profiles/${profileUrlName}/profileContactInfo`,
         {
-            headers: { 'csrf-token': token }
+            headers: {
+                accept: 'application/vnd.linkedin.normalized+json+2.1',
+                'csrf-token': token 
+            }
         }
     )
 

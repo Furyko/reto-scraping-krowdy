@@ -7,7 +7,7 @@ async function startScraping() {
         const profileUrlList = []
         resultsContainer.forEach((resultItem) => {
             const profileUrlItem = $(
-                '.entity-result > .entity-result__item > .entity-result__content > .mb1 > div > div > span > span > a',
+                '.entity-result > .entity-result__item > .entity-result__content > div > div > div > span > span > a',
                 resultItem
             )
             try {
